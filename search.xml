@@ -8,7 +8,7 @@
       <link href="/2025/04/17/nmap-%E6%89%AB%E6%8F%8F%E5%B7%A5%E5%85%B7-%E4%BD%BF%E7%94%A8/"/>
       <url>/2025/04/17/nmap-%E6%89%AB%E6%8F%8F%E5%B7%A5%E5%85%B7-%E4%BD%BF%E7%94%A8/</url>
       
-        <content type="html"><![CDATA[<h3 id="1-Nmap介绍"><a href="#1-Nmap介绍" class="headerlink" title="1.Nmap介绍"></a>1.Nmap介绍</h3><ol><li>是一款开源免费的网络探测、安全审计的工具</li><li>通过Nmap探测服务器存活以及开放的服务，以及对目标进行安全审计</li></ol>]]></content>
+        <content type="html"><![CDATA[<h3 id="1-Nmap介绍"><a href="#1-Nmap介绍" class="headerlink" title="1.Nmap介绍"></a>1.Nmap介绍</h3><p>1.是一款开源免费的网络探测、安全审计的工具<br>2.通过Nmap探测服务器存活以及开放的服务，以及对目标进行安全审计<br>3.功能：主机发现、端口扫描、版本侦测、操作系统侦测<br>4.主要用于内网，专门扫描端口开放情况<br>5.namp扫描ip：只有能连接到的ip,可以扫描同网段ip</p><h3 id="2-一些常用参数"><a href="#2-一些常用参数" class="headerlink" title="2.一些常用参数"></a>2.一些常用参数</h3><ol><li>-T4指定扫描过程的级别，级别越高扫描速度越快，但也越容易被防火墙或者IDS屏蔽，一般推荐使用T4级别</li><li>-sn只进行主机发现，不进行端口扫描</li><li>-O进行系统版本扫描<blockquote><p>–osscan-guess 当无法精确匹配时，强制显示最接近的操作系统猜测结果</p></blockquote></li><li>-sV进行服务版本扫描</li><li>-p 扫描指定端口</li><li>-sS发送SYN包扫描</li><li>-sT 发送TCP包扫描</li><li>-sA 发送ACK包扫描</li><li>-sU UDP扫描</li><li>-PO 不进行ping扫描</li><li>-script 指定脚本扫描</li><li>-Pn(跳过主机存活检测),不进行ping检测<br>-p- 扫描所有65535端口(而非常规的1000个)</li></ol>]]></content>
       
       
       
