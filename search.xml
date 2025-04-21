@@ -27,7 +27,7 @@
       <link href="/2025/04/17/%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/"/>
       <url>/2025/04/17/%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/</url>
       
-        <content type="html"><![CDATA[<p>挖个坑先，欸嘿～</p><h1 id="1-计算机网络简述"><a href="#1-计算机网络简述" class="headerlink" title="1.计算机网络简述"></a>1.计算机网络简述</h1><h3 id="1-1-计算机网络概述"><a href="#1-1-计算机网络概述" class="headerlink" title="1.1 计算机网络概述"></a>1.1 计算机网络概述</h3><h5 id="1-1-1-分组交换"><a href="#1-1-1-分组交换" class="headerlink" title="1.1.1 分组交换"></a>1.1.1 分组交换</h5><ol><li>通过标有地址的分组进行路由选择传送数据，使通信通道仅在传送期间被占用的一种交换方式分组的组成</li><li>每个分组都由 <strong>首部</strong> 和 <strong>数据段</strong> 组成</li></ol>]]></content>
+        <content type="html"><![CDATA[<p>挖个坑先，欸嘿～</p><h1 id="1-计算机网络简述"><a href="#1-计算机网络简述" class="headerlink" title="1.计算机网络简述"></a>1.计算机网络简述</h1><h3 id="1-1-计算机网络概述"><a href="#1-1-计算机网络概述" class="headerlink" title="1.1 计算机网络概述"></a>1.1 计算机网络概述</h3><h5 id="1-1-1-分组交换"><a href="#1-1-1-分组交换" class="headerlink" title="1.1.1 分组交换"></a>1.1.1 分组交换</h5><ol><li>通过标有地址的分组进行路由选择传送数据，使通信通道仅在传送期间被占用的一种交换方式分组的组成</li><li>每个分组都由__首部__和__数据段__组成</li></ol>]]></content>
       
       
       
