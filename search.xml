@@ -8,7 +8,7 @@
       <link href="/2025/05/14/Cookie,Session,Token/"/>
       <url>/2025/05/14/Cookie,Session,Token/</url>
       
-        <content type="html"><![CDATA[]]></content>
+        <content type="html"><![CDATA[<blockquote><p>http无状态协议</p></blockquote><h1 id="cookie"><a href="#cookie" class="headerlink" title="cookie"></a>cookie</h1><ol><li>服务端产生内容，发送浏览器保存本地，cookie可以被来回传递，主要用于记录用户的会话状态、身份验证、跟踪用户的行为</li><li>优点：<ol><li>在浏览器和服务器间来回传递，适用于跟踪用户行为</li><li>可以手动设置过期时间，灵活调节存储时间</li></ol></li><li>缺点：</li></ol>]]></content>
       
       
       <categories>
