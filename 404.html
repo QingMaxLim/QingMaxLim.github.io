@@ -142,7 +142,7 @@
   isToc: false,
   pageType: 'page'
 }</script><meta name="generator" content="Hexo 7.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="/img/profile_picture.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">11</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">4</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">10</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archive/"><i class="fa-fw fas fa-archive"></i><span> archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> categories</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> friendly_links</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> about</span></a></div><div class="menus_item"><a class="site-page" href="/music/"><i class="fa-fw fas fa-music"></i><span> music</span></a></div></div></div></div><div class="page type-404" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">QingMaxLim-Blog</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archive/"><i class="fa-fw fas fa-archive"></i><span> archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> categories</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> friendly_links</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> about</span></a></div><div class="menus_item"><a class="site-page" href="/music/"><i class="fa-fw fas fa-music"></i><span> music</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><h1 class="title-seo">QingMaxLim-Blog</h1></header><main class="layout hide-aside" id="content-inner"><div class="nc" id="page"><div class="error-content"><div class="error-img"><img src="/img/404.jpg" alt="Page not found"></div><div class="error-info"><h1 class="error_title">404</h1><div class="error_subtitle">Page Not Found</div></div></div></div></main><footer id="footer"><div class="footer-other"><div class="footer-copyright"><span class="copyright">&copy;2025 By QingMaxLim</span><span class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo 7.3.0</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly 5.4.1</a></span></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><div class="js-pjax"></div><script>
-  document.addEventListener('DOMContentLoaded', function(){
+  document.addEventListener('DOMContentLoaded', function() {
     // 每句话对应的图片配置
     const slideConfig = [
       {
@@ -182,7 +182,7 @@
     const topImg = document.querySelector('#page-header');
     if (!topImg) return;
 
-    // 设置初始样式
+    // 设置初始样式和第一张图片
     topImg.style.backgroundSize = 'cover';
     topImg.style.backgroundPosition = 'center';
     topImg.style.backgroundRepeat = 'no-repeat';
@@ -191,56 +191,55 @@
 
     let currentIndex = 0;
 
-    function changeBackground(){
+    function changeBackground() {
       currentIndex = (currentIndex + 1) % slideConfig.length;
       
-      // 淡出效果
       topImg.style.opacity = '0.7';
-      
-      setTimeout(()=>{
-        // 切换背景图片
+      setTimeout(() => {
         topImg.style.backgroundImage = `url('${slideConfig[currentIndex].image}')`;
-        // 淡入效果
         topImg.style.opacity = '1';
       }, 800);
     }
 
-    // 监听打字机状态变化
-    function syncWithTyped(){
-      const typedElement = document.querySelector('.typed-cursor');
-      if (!typedElement){
-        setTimeout(syncWithTyped, 100);
-        return;
-      }
-
-      // 监听打字机开始删除文字的时刻(这时应该切换图片)
-      let lastText = '';
-      const checkTextChange = setInterval(()=>{
-        const subtitleElement = document.querySelector('#subtitle');
-        if (subtitleElement){
-          const currentText = subtitleElement.textContent || subtitleElement.innerText;
-          
-          // 如果文字变短（开始删除），切换图片
-          if (currentText.length < lastText.length && currentText.length > 0) {
-            changeBackground();
-          }
-          
-          lastText = currentText;
-        }
-      }, 100);
-
-      // 备用方案：如果检测失败，使用固定时间间隔
-      setTimeout(()=>{
-        clearInterval(checkTextChange); 
-        // 根据打字机配置计算切换时间
-        // typeSpeed: 100, backSpeed: 50, backDelay: 2000
-        // 每句话显示时间 ≈ 文字长度 * 100ms + 2000ms + 删除时间
-        setInterval(changeBackground, 4000); // 4秒切换一次
-      }, 10000);
+    // 根据打字机配置计算切换时间
+    // typeSpeed: 100, backSpeed: 50, backDelay: 2000
+    // 每句话显示时间 = 打字时间 + 停留时间 + 删除时间
+    function calculateSwitchTime(text) {
+      const typeTime = text.length * 100; // 打字时间
+      const stayTime = 2000; // backDelay
+      const deleteTime = text.length * 20; // 删除时间（比打字快）
+      return typeTime + stayTime + deleteTime;
     }
 
-    // 启动同步
-    syncWithTyped();
+    // 为每句话设置精确的切换时间
+    function setupPreciseTiming() {
+      let index = 0;
+      
+      function scheduleNext() {
+        if (index < slideConfig.length - 1) {
+          const currentText = slideConfig[index].text;
+          const switchTime = calculateSwitchTime(currentText);
+          
+          setTimeout(() => {
+            changeBackground();
+            index++;
+            scheduleNext();
+          }, switchTime);
+        } else {
+          // 循环到最后一句，重新开始
+          setTimeout(() => {
+            changeBackground();
+            index = 0;
+            scheduleNext();
+          }, calculateSwitchTime(slideConfig[slideConfig.length - 1].text));
+        }
+      }
+      
+      scheduleNext();
+    }
+
+    // 启动精确计时
+    setupPreciseTiming();
   });
 </script>
 <script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
