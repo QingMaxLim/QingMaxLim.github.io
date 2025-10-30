@@ -142,58 +142,105 @@
   isToc: false,
   pageType: 'page'
 }</script><meta name="generator" content="Hexo 7.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="/img/profile_picture.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">11</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">4</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">10</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archive/"><i class="fa-fw fas fa-archive"></i><span> archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> categories</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> friendly_links</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> about</span></a></div><div class="menus_item"><a class="site-page" href="/music/"><i class="fa-fw fas fa-music"></i><span> music</span></a></div></div></div></div><div class="page type-404" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">QingMaxLim-Blog</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archive/"><i class="fa-fw fas fa-archive"></i><span> archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> categories</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> friendly_links</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> about</span></a></div><div class="menus_item"><a class="site-page" href="/music/"><i class="fa-fw fas fa-music"></i><span> music</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><h1 class="title-seo">QingMaxLim-Blog</h1></header><main class="layout hide-aside" id="content-inner"><div class="nc" id="page"><div class="error-content"><div class="error-img"><img src="/img/404.jpg" alt="Page not found"></div><div class="error-info"><h1 class="error_title">404</h1><div class="error_subtitle">Page Not Found</div></div></div></div></main><footer id="footer"><div class="footer-other"><div class="footer-copyright"><span class="copyright">&copy;2025 By QingMaxLim</span><span class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo 7.3.0</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly 5.4.1</a></span></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><div class="js-pjax"></div><script>
-  // 封面图片自动轮播
-  document.addEventListener('DOMContentLoaded', function() {
-    const covers = [
-      '/img/background.jpg',
-      '/img/cover_17.jpg;
-      '/img/cover_18.jpg', 
-      '/img/cover_20.png',
-      '/img/cover_21.jpg',
-      '/img/cover_24.png',
-      '/img/cover_26.png',
-      '/img/cover_27.jpg'
-    ];
-  
-    // 过滤掉可能不存在的图片路径
-    const validCovers = covers.filter(cover => cover);
-    // 如果只有一张或没有图片，不执行轮播
-    if (validCovers.length <= 1) return;
-
-    let currentCover = 0;
-
-    function changeCover(){
-      const topImg = document.querySelector('#page-header');
-      
-      if (topImg){
-        currentCover = (currentCover + 1) % validCovers.length;
-        
-        // 创建淡入淡出效果
-        topImg.style.opacity = '0.7';
-        topImg.style.transition = 'opacity 0.8s ease-in-out';
-        
-        setTimeout(()=>{
-          topImg.style.backgroundImage = `url('${validCovers[currentCover]}')`;
-          topImg.style.opacity = '1';
-        }, 800);
+  document.addEventListener('DOMContentLoaded', function(){
+    // 每句话对应的图片配置
+    const slideConfig = [
+      {
+        text: '天动万象 山海化形 荒地生星 璨如烈阳',
+        image: '/img/background.jpg'
+      },
+      {
+        text: '世界的真理 我已解明(doge)',
+        image: '/img/cover_17.jpg'
+      },
+      {
+        text: '为世界播下怀疑的种子———— 至此 工程已毕 言尽于此',
+        image: '/img/cover_18.jpg'
+      },
+      {
+        text: '大胆に君の心を拐って(我将大胆地前来掳走你的心) 鳥のように翼を広げながら(再如飞鸟般张开羽翼)',
+        image: '/img/cover_20.png'
+      },
+      {
+        text: 'もし会えていたならどうだったろう?(你我邂逅 又会是怎样的光景?) 手と手を取りあえたかな?(是否会十指相缠，不离不弃)',
+        image: '/img/cover_21.jpg'
+      },
+      {
+        text: 'オー！リバル オー！リバル 姿なき姿を追い続けた先が(噢!宿敌 噢!宿敌 一路追寻 无影之影)',
+        image: '/img/cover_24.png'
+      },
+      {
+        text: '導く Blue moon night(你的光芒的是blue moon night) Secret in the moonlight(月光下的秘密)',
+        image: '/img/cover_26.png'
+      },
+      {
+        text: '二人を阻む 真っ白な薔薇の棘(白玫瑰的尖刺阻扰着两人) 届かないほど 燃え上がる Feeling(无法传达 熊熊燃烧的feeling)',
+        image: '/img/cover_27.jpg'
       }
+    ];
+
+    const topImg = document.querySelector('#page-header');
+    if (!topImg) return;
+
+    // 设置初始样式
+    topImg.style.backgroundSize = 'cover';
+    topImg.style.backgroundPosition = 'center';
+    topImg.style.backgroundRepeat = 'no-repeat';
+    topImg.style.transition = 'opacity 0.8s ease-in-out';
+    topImg.style.backgroundImage = `url('${slideConfig[0].image}')`;
+
+    let currentIndex = 0;
+
+    function changeBackground(){
+      currentIndex = (currentIndex + 1) % slideConfig.length;
+      
+      // 淡出效果
+      topImg.style.opacity = '0.7';
+      
+      setTimeout(()=>{
+        // 切换背景图片
+        topImg.style.backgroundImage = `url('${slideConfig[currentIndex].image}')`;
+        // 淡入效果
+        topImg.style.opacity = '1';
+      }, 800);
     }
 
-    // 添加缺失的部分：设置初始样式和启动轮播
-    const topImg = document.querySelector('#page-header');
-    if (topImg){
-      // 确保背景图片样式正确
-      topImg.style.backgroundSize = 'cover';
-      topImg.style.backgroundPosition = 'center';
-      topImg.style.backgroundRepeat = 'no-repeat';
-      topImg.style.transition = 'background-image 1.5s ease-in-out, opacity 0.8s ease-in-out';
-      
-      // 设置初始图片
-      topImg.style.backgroundImage = `url('${validCovers[0]}')`;
-      
-      // 启动轮播(每5秒切换一次)
-      setInterval(changeCover, 3000);
+    // 监听打字机状态变化
+    function syncWithTyped(){
+      const typedElement = document.querySelector('.typed-cursor');
+      if (!typedElement){
+        setTimeout(syncWithTyped, 100);
+        return;
+      }
+
+      // 监听打字机开始删除文字的时刻(这时应该切换图片)
+      let lastText = '';
+      const checkTextChange = setInterval(()=>{
+        const subtitleElement = document.querySelector('#subtitle');
+        if (subtitleElement){
+          const currentText = subtitleElement.textContent || subtitleElement.innerText;
+          
+          // 如果文字变短（开始删除），切换图片
+          if (currentText.length < lastText.length && currentText.length > 0) {
+            changeBackground();
+          }
+          
+          lastText = currentText;
+        }
+      }, 100);
+
+      // 备用方案：如果检测失败，使用固定时间间隔
+      setTimeout(()=>{
+        clearInterval(checkTextChange); 
+        // 根据打字机配置计算切换时间
+        // typeSpeed: 100, backSpeed: 50, backDelay: 2000
+        // 每句话显示时间 ≈ 文字长度 * 100ms + 2000ms + 删除时间
+        setInterval(changeBackground, 4000); // 4秒切换一次
+      }, 10000);
     }
+
+    // 启动同步
+    syncWithTyped();
   });
 </script>
 <script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
